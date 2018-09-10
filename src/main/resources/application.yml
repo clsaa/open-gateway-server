@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: open-gateway-server  #服务名
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+server:
+  port: 8888
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    leaseExpirationDurationInSeconds: 30
+  client:
+    serviceUrl:
+      defaultZone: http://discovery.clsaa.com/eureka/
