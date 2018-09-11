@@ -18,6 +18,7 @@ eureka:
   instance:
     leaseRenewalIntervalInSeconds: 10
     leaseExpirationDurationInSeconds: 30
+    prefer-ip-address: true
   client:
     serviceUrl:
       defaultZone: http://discovery.clsaa.com/eureka/
