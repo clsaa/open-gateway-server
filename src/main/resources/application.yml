@@ -6,12 +6,6 @@ spring:
       charset: UTF-8
       enabled: true
       force: true
-  cloud:
-    gateway:
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
 server:
   port: 8888
 eureka:
