@@ -16,3 +16,10 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://discovery.clsaa.com/eureka/
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
