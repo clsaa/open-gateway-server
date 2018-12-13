@@ -1,0 +1,47 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: open-gateway-server
+  namespace: dop
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: open-gateway-server
+    spec:
+      containers:
+      - name: open-gateway-server
+        image: docker.io/clsaa/open-gateway-server
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8888
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: open-gateway-server
+  namespace: dop
+  labels:
+    app: open-gateway-server
+spec:
+  ports:
+  - port: 8888
+    protocol: TCP
+    targetPort: 8888
+  selector:
+    app: open-gateway-server
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: open-gateway-server
+  namespace: dop
+spec:
+  rules:
+  - host: gateway.dop.clsaa.com
+    http:
+      paths:
+      - backend:
+          serviceName: open-gateway-server
+          servicePort: 8888

@@ -15,7 +15,7 @@ eureka:
     prefer-ip-address: true
   client:
     serviceUrl:
-      defaultZone: http://discovery.clsaa.com/eureka/
+      defaultZone: http://open-eureka-server:8761/eureka/
 hystrix:
   command:
     default:
